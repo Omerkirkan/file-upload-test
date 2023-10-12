@@ -11,6 +11,10 @@ const upload = require("./upload");
 
 app.post('/upload-img', upload("one"));
 
+app.get('/ready', (req, res) => {
+    res.send('Yes I am ready!');
+});
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 });

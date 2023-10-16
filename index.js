@@ -11,6 +11,14 @@ const upload = require("./upload");
 
 app.post('/upload-img', upload("one"));
 
+app.get('/images', (req, res) => {
+    const fs = require("fs");
+    const path = require("path");
+    const folder = path.join(__dirname, "public", "one");
+    const images = fs.readdirSync(folder);
+    res.json({ status: "success", data: { images } });
+});
+
 app.get('/ready', (req, res) => {
     res.send('Yes I am ready!');
 });
